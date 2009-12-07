@@ -18,7 +18,7 @@ class MommaSql:
   def _selict(self, d, f):
     sl= self._equalKeys(d, skipid= 0)
     what= f and _commajoin(f) or '*'
-    return what, _commajoin(sl)
+    return what, ' and '.join(sl)
 
   def _insict(self, d):
     sls= []
@@ -95,6 +95,10 @@ class WMotherSession(object):
 class MotherInitializer:
   def init_db(self, ptype, plimit, dbtype, *a, **kw):
     Momma.init_mother_pooling(ptype, plimit, dbtype, *a, **kw)
+
+def init_mother(ptype, plimit, dbtype, *a, **kw):
+  i= MotherInitializer()
+  i.init_db(ptype, plimit, dbtype, *a, **kw)
 
 class DbMother(MommaSql):
   def __init__(self, session, tbl, store= {}):
