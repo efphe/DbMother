@@ -1,5 +1,6 @@
 _commajoin= ','.join
 from dbmother.pooling import *
+import logging
 
 class MommaSql:
   argFrmt= None
@@ -91,6 +92,8 @@ class WMotherSession(object):
     return ses, self.ret
   def __exit__(self, type, value, traceback):
     self.session.endSession(type)
+    if type or value:
+      logging.error('Session Error: %s, %s', str(type), str(value))
     return self.skipException
 
 class MotherInitializer:

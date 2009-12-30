@@ -3,6 +3,7 @@ import logging
 import psycopg2
 from dbmother.modb import IMotherDb
 from dbmother.mocoms import YELLOW, GREEN
+import psycopg2.extensions
 
 class DbIface(IMotherDb):
 
@@ -13,7 +14,9 @@ class DbIface(IMotherDb):
       s= "dbname=%s user=%s password=%s" % (dbname, user, pwd)
     else:
       s= "dbname=%s user=%s host=%s password=%s port=%d" % (dbname, user, host, pwd, port) 
-    self.connection= psycopg2.connect(s)
+    c= self.connection= psycopg2.connect(s)
+    c.set_client_encoding('UNICODE')
+    psycopg2.extensions.register_type(psycopg2.extensions.UNICODE)
     self.cursor= self.connection.cursor()
 
   def rollback(self):
