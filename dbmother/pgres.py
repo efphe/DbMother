@@ -68,6 +68,8 @@ class DbIface(IMotherDb):
       d= {'id': _id}
       return d
     else:
-      a= 1/0
+      _id= self.ov_query(sql + ' returning id', d)
+      d= {'id': _id}
+      return d
 
 
