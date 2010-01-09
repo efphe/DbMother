@@ -1,1 +1,9 @@
 DbMother is a Python (eventually Asynchronous) Database Layer for Postgresql and Sqlite
+
+ DbMother is used by WuBook:
+
+  http://wubook.net/ http://en.wubook.net/
+
+ by Woniie:
+
+  http://fatture-online.it/
