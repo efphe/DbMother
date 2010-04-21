@@ -104,6 +104,9 @@ def init_mother(ptype, plimit, dbtype, *a, **kw):
   i= MotherInitializer()
   i.init_db(ptype, plimit, dbtype, *a, **kw)
 
+def pg_init_mother(ptype, plimit, user, pwd, dbname, host= None, port= 5432):
+  init_mother(ptype, plimit, DB_PGRES, user, pwd, dbname, host= host, port= port)
+
 class DbMother(MommaSql):
   def __init__(self, session, tbl, store= {}):
     self.tableName= tbl
