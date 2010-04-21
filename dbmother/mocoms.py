@@ -1,3 +1,7 @@
+# Author: Federico Tomassini aka efphe
+# Thanks to: http://wubook.net/ http://en.wubook.net/
+# License: BSD license. See `LICENSE` file at the root
+#          of python module
 DEFCOL = "\033[0m"
 BLACKCOL = "\033[0;30m"
 REDCOL = "\033[0;31m"
