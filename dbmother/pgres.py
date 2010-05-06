@@ -11,9 +11,8 @@ import psycopg2.extensions
 
 class DbIface(IMotherDb):
 
-  withOid= 1
-
-  def __init__(self, user, pwd, dbname, host= None, port= 5432):
+  def __init__(self, user, pwd, dbname, host= None, port= 5432, withOid= 1):
+    self.withOid= withOid
     if not host:
       s= "dbname=%s user=%s password=%s" % (dbname, user, pwd)
     else:
