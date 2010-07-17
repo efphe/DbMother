@@ -114,9 +114,9 @@ def pg_init_mother(ptype, plimit, user, pwd, dbname, host= None, port= 5432, wit
   init_mother(ptype, plimit, DB_PGRES, user, pwd, dbname, host= host, port= port, withOid= withOid)
 
 class DbMother(MommaSql):
-  def __init__(self, session, tbl, store= {}):
+  def __init__(self, session, tbl, store= None):
     self.tableName= tbl
-    self.store= store
+    self.store= store or {}
     self.session= session
     self.moved= []
 
